@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { FormData, PensionType, SimulationResult } from '@/types/simulator';
 import { calcularElegibilidad, calcularEdad } from '@/lib/calculator';
 import Link from 'next/link';
@@ -20,6 +20,9 @@ const initialFormData: FormData = {
   conviveConyuge: false,
   numeroConvivientes: 1,
   ingresosAnualesFamiliares: 0,
+  conviveConPadresOHijos: false,
+  necesitaTerceraPersona: false,
+  trabajaConInvalidez: false,
 };
 
 export default function Simulator() {
@@ -164,9 +167,17 @@ export default function Simulator() {
                   />
                 )}
 
-                {/* Paso 5/6: Unidad de convivencia */}
+                {/* Paso 5: Unidad de convivencia */}
                 {currentStep === 5 && (
                   <Step5
+                    formData={formData}
+                    updateFormData={updateFormData}
+                  />
+                )}
+
+                {/* Paso 6: Información adicional (solo para invalidez) */}
+                {currentStep === 6 && formData.tipoPension === 'invalidez' && (
+                  <Step6
                     formData={formData}
                     updateFormData={updateFormData}
                   />
@@ -467,6 +478,13 @@ function Step4({ formData, updateFormData }: { formData: FormData; updateFormDat
 }
 
 function Step5({ formData, updateFormData }: { formData: FormData; updateFormData: (field: keyof FormData, value: any) => void }) {
+  const [localNumConvivientes, setLocalNumConvivientes] = useState<string>(String(formData.numeroConvivientes));
+
+  // Sincronizar el estado local cuando cambia formData (ej: cuando el usuario selecciona "vivo solo")
+  useEffect(() => {
+    setLocalNumConvivientes(String(formData.numeroConvivientes));
+  }, [formData.viveSolo]);
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -487,6 +505,7 @@ function Step5({ formData, updateFormData }: { formData: FormData; updateFormDat
                 updateFormData('viveSolo', true);
                 updateFormData('numeroConvivientes', 1);
                 updateFormData('conviveConyuge', false);
+                setLocalNumConvivientes('1');
               }}
               className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
                 formData.viveSolo
@@ -497,7 +516,13 @@ function Step5({ formData, updateFormData }: { formData: FormData; updateFormDat
               Sí, vivo solo/a
             </button>
             <button
-              onClick={() => updateFormData('viveSolo', false)}
+              onClick={() => {
+                updateFormData('viveSolo', false);
+                if (formData.numeroConvivientes < 2) {
+                  updateFormData('numeroConvivientes', 2);
+                  setLocalNumConvivientes('2');
+                }
+              }}
               className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
                 !formData.viveSolo
                   ? 'border-gold bg-gold/10 text-gold'
@@ -547,11 +572,70 @@ function Step5({ formData, updateFormData }: { formData: FormData; updateFormDat
                 type="number"
                 min="2"
                 max="10"
-                value={formData.numeroConvivientes}
-                onChange={(e) => updateFormData('numeroConvivientes', parseInt(e.target.value) || 2)}
+                value={localNumConvivientes}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setLocalNumConvivientes(value);
+                  
+                  // Solo actualizar formData si es un número válido
+                  const numValue = parseInt(value);
+                  if (!isNaN(numValue) && numValue >= 2 && numValue <= 10) {
+                    updateFormData('numeroConvivientes', numValue);
+                  }
+                }}
+                onBlur={(e) => {
+                  // Al perder el foco, asegurar que el valor esté en el rango correcto
+                  const value = parseInt(e.target.value);
+                  let finalValue = formData.numeroConvivientes;
+                  
+                  if (isNaN(value) || value < 2) {
+                    finalValue = 2;
+                  } else if (value > 10) {
+                    finalValue = 10;
+                  } else {
+                    finalValue = value;
+                  }
+                  
+                  setLocalNumConvivientes(String(finalValue));
+                  updateFormData('numeroConvivientes', finalValue);
+                }}
                 className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:border-gold focus:outline-none text-white"
                 placeholder="Ej: 3"
               />
+              <p className="text-xs text-gray-400 mt-2">
+                Mínimo 2 personas, máximo 10
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">
+                ¿Entre las personas con las que convives están tus padres o hijos?
+              </label>
+              <div className="flex gap-4">
+                <button
+                  onClick={() => updateFormData('conviveConPadresOHijos', true)}
+                  className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
+                    formData.conviveConPadresOHijos
+                      ? 'border-gold bg-gold/10 text-gold'
+                      : 'border-gray-600 hover:border-gold/50'
+                  }`}
+                >
+                  Sí
+                </button>
+                <button
+                  onClick={() => updateFormData('conviveConPadresOHijos', false)}
+                  className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
+                    !formData.conviveConPadresOHijos
+                      ? 'border-gold bg-gold/10 text-gold'
+                      : 'border-gray-600 hover:border-gold/50'
+                  }`}
+                >
+                  No
+                </button>
+              </div>
+              <p className="text-xs text-gray-400 mt-2">
+                Esto afecta al límite de ingresos permitidos
+              </p>
             </div>
 
             <div>
@@ -576,6 +660,83 @@ function Step5({ formData, updateFormData }: { formData: FormData; updateFormDat
             </div>
           </>
         )}
+      </div>
+    </motion.div>
+  );
+}
+
+function Step6({ formData, updateFormData }: { formData: FormData; updateFormData: (field: keyof FormData, value: any) => void }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -20 }}
+    >
+      <h3 className="text-2xl font-bold mb-2">Información adicional</h3>
+      <p className="text-gray-400 mb-8">Preguntas específicas para la pensión de invalidez</p>
+
+      <div className="space-y-6">
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            ¿Necesitas ayuda de una tercera persona para realizar actividades básicas de la vida diaria?
+          </label>
+          <div className="flex gap-4">
+            <button
+              onClick={() => updateFormData('necesitaTerceraPersona', true)}
+              className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
+                formData.necesitaTerceraPersona
+                  ? 'border-gold bg-gold/10 text-gold'
+                  : 'border-gray-600 hover:border-gold/50'
+              }`}
+            >
+              Sí
+            </button>
+            <button
+              onClick={() => updateFormData('necesitaTerceraPersona', false)}
+              className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
+                !formData.necesitaTerceraPersona
+                  ? 'border-gold bg-gold/10 text-gold'
+                  : 'border-gray-600 hover:border-gold/50'
+              }`}
+            >
+              No
+            </button>
+          </div>
+          <p className="text-xs text-gray-400 mt-2">
+            Si necesitas asistencia de otra persona, podrías tener derecho a un complemento adicional
+          </p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            ¿Actualmente estás trabajando o has empezado a trabajar en los últimos 4 años mientras cobrabas la pensión de invalidez?
+          </label>
+          <div className="flex gap-4">
+            <button
+              onClick={() => updateFormData('trabajaConInvalidez', true)}
+              className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
+                formData.trabajaConInvalidez
+                  ? 'border-gold bg-gold/10 text-gold'
+                  : 'border-gray-600 hover:border-gold/50'
+              }`}
+            >
+              Sí
+            </button>
+            <button
+              onClick={() => updateFormData('trabajaConInvalidez', false)}
+              className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all ${
+                !formData.trabajaConInvalidez
+                  ? 'border-gold bg-gold/10 text-gold'
+                  : 'border-gray-600 hover:border-gold/50'
+              }`}
+            >
+              No
+            </button>
+          </div>
+          <p className="text-xs text-gray-400 mt-2">
+            Los primeros 4 años trabajando con invalidez tienen un límite de ingresos especial más alto
+          </p>
+        </div>
       </div>
     </motion.div>
   );

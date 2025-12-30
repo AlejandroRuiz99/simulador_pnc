@@ -104,12 +104,12 @@ const whatsappNumber = '34TU_NUMERO_AQUI';
 
 ### Actualizar Cuantías (Cada Año)
 
-Edita `types/simulator.ts` → `PARAMETROS_2025`:
+Edita `types/simulator.ts` → `PARAMETROS_2026`:
 ```typescript
-export const PARAMETROS_2025 = {
+export const PARAMETROS_2026 = {
   cuantiaIntegra: {
-    anual: 7250.60,  // ← Actualizar aquí
-    mensual: 517.90,  // ← Y aquí
+    anual: 8803.2,  // ← Actualizar aquí
+    mensual: 628.80,  // ← Y aquí
     pagas: 14,
   },
   // ...

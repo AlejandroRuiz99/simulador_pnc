@@ -1,4 +1,4 @@
-import { FormData, SimulationResult, PARAMETROS_2025, Requirement } from '@/types/simulator';
+import { FormData, SimulationResult, PARAMETROS_2026, Requirement } from '@/types/simulator';
 
 export function calcularElegibilidad(formData: FormData): SimulationResult {
   const resultado: SimulationResult = {
@@ -36,7 +36,7 @@ export function calcularElegibilidad(formData: FormData): SimulationResult {
   // Verificar requisitos según tipo de pensión
   if (formData.tipoPension === 'jubilacion') {
     // PENSIÓN DE JUBILACIÓN
-    const { edadMinima, anosResidencia, anosConsecutivos } = PARAMETROS_2025.requisitos.jubilacion;
+    const { edadMinima, anosResidencia, anosConsecutivos } = PARAMETROS_2026.requisitos.jubilacion;
 
     // 1. Verificar edad
     resultado.requisitos.edad.required = `${edadMinima} años o más`;
@@ -51,7 +51,7 @@ export function calcularElegibilidad(formData: FormData): SimulationResult {
   } else if (formData.tipoPension === 'invalidez') {
     // PENSIÓN DE INVALIDEZ
     const { edadMinima, edadMaxima, gradoDiscapacidadMinimo, anosResidencia, anosConsecutivos } =
-      PARAMETROS_2025.requisitos.invalidez;
+      PARAMETROS_2026.requisitos.invalidez;
 
     // 1. Verificar edad
     resultado.requisitos.edad.required = `Entre ${edadMinima} y ${edadMaxima} años`;
@@ -118,11 +118,11 @@ export function calcularElegibilidad(formData: FormData): SimulationResult {
     if (!resultado.requisitos.edad.met) {
       if (formData.tipoPension === 'jubilacion') {
         resultado.recomendaciones.push(
-          `Debes tener al menos ${PARAMETROS_2025.requisitos.jubilacion.edadMinima} años para la pensión de jubilación.`
+          `Debes tener al menos ${PARAMETROS_2026.requisitos.jubilacion.edadMinima} años para la pensión de jubilación.`
         );
       } else {
         resultado.recomendaciones.push(
-          `La pensión de invalidez es para personas entre ${PARAMETROS_2025.requisitos.invalidez.edadMinima} y ${PARAMETROS_2025.requisitos.invalidez.edadMaxima} años.`
+          `La pensión de invalidez es para personas entre ${PARAMETROS_2026.requisitos.invalidez.edadMinima} y ${PARAMETROS_2026.requisitos.invalidez.edadMaxima} años.`
         );
       }
     }
@@ -143,7 +143,7 @@ export function calcularElegibilidad(formData: FormData): SimulationResult {
 
     if (resultado.requisitos.discapacidad && !resultado.requisitos.discapacidad.met) {
       resultado.recomendaciones.push(
-        `Necesitas un grado de discapacidad de al menos ${PARAMETROS_2025.requisitos.invalidez.gradoDiscapacidadMinimo}% para la pensión de invalidez.`,
+        `Necesitas un grado de discapacidad de al menos ${PARAMETROS_2026.requisitos.invalidez.gradoDiscapacidadMinimo}% para la pensión de invalidez.`,
         'Si no tienes el certificado de discapacidad, solicita una valoración en tu centro de salud.'
       );
     }
@@ -157,54 +157,79 @@ export function calcularElegibilidad(formData: FormData): SimulationResult {
 }
 
 function calcularLimiteIngresos(formData: FormData): number {
+  // Si vive solo
   if (formData.viveSolo) {
-    return PARAMETROS_2025.limitesIngresos.individual;
+    // Si tiene invalidez con complemento de tercera persona
+    if (formData.tipoPension === 'invalidez' && formData.necesitaTerceraPersona) {
+      return PARAMETROS_2026.limitesIngresos.invalidezTerceraPersona.individual;
+    }
+    // Si tiene invalidez y trabaja (primeros 4 años)
+    if (formData.tipoPension === 'invalidez' && formData.trabajaConInvalidez) {
+      return PARAMETROS_2026.limitesIngresos.invalidezConTrabajo;
+    }
+    return PARAMETROS_2026.limitesIngresos.individual;
   }
 
-  // Si convive con cónyuge y ambos cumplen requisitos (caso especial)
-  if (formData.conviveConyuge && formData.numeroConvivientes === 2) {
-    // Simplificación: se podría añadir lógica más compleja aquí
-    return PARAMETROS_2025.limitesIngresos.conyugeAmbosRequisitos;
-  }
-
-  // Límite según número de convivientes
+  // Si convive con otras personas
   const numConvivientes = formData.numeroConvivientes;
-  if (numConvivientes >= 5) {
-    return PARAMETROS_2025.limitesIngresos.familiar[5];
+  const numConvivientesKey = Math.min(numConvivientes, 5) as 2 | 3 | 4 | 5;
+
+  // Determinar si es Tipo A o Tipo B
+  const esConvivenciaTipoB = formData.conviveConPadresOHijos;
+
+  // Si tiene invalidez con complemento de tercera persona
+  if (formData.tipoPension === 'invalidez' && formData.necesitaTerceraPersona) {
+    if (esConvivenciaTipoB) {
+      return PARAMETROS_2026.limitesIngresos.invalidezTerceraPersona.tipoB[numConvivientesKey];
+    } else {
+      return PARAMETROS_2026.limitesIngresos.invalidezTerceraPersona.tipoA[numConvivientesKey];
+    }
   }
-  
-  return PARAMETROS_2025.limitesIngresos.familiar[numConvivientes as 2 | 3 | 4] || 
-         PARAMETROS_2025.limitesIngresos.individual;
+
+  // Si tiene invalidez y trabaja (primeros 4 años)
+  if (formData.tipoPension === 'invalidez' && formData.trabajaConInvalidez) {
+    return PARAMETROS_2026.limitesIngresos.invalidezConTrabajo;
+  }
+
+  // Límites normales según tipo de convivencia
+  if (esConvivenciaTipoB) {
+    return PARAMETROS_2026.limitesIngresos.familiarTipoB[numConvivientesKey];
+  } else {
+    return PARAMETROS_2026.limitesIngresos.familiarTipoA[numConvivientesKey];
+  }
 }
 
 function calcularCuantia(formData: FormData): { mensual: number; anual: number } {
-  const { cuantiaIntegra, cuantiaMinima } = PARAMETROS_2025;
+  const { cuantiaIntegra, cuantiaMinima, ingresoExento } = PARAMETROS_2026;
+
+  // Determinar ingresos a considerar (personal o familiar)
+  const ingresosBase = formData.viveSolo 
+    ? formData.ingresosAnualesPersonales 
+    : formData.ingresosAnualesFamiliares;
 
   // Si no tiene ingresos, recibe la cuantía íntegra
-  if (formData.ingresosAnualesPersonales === 0 && formData.viveSolo) {
+  if (ingresosBase === 0) {
     return {
       mensual: cuantiaIntegra.mensual,
       anual: cuantiaIntegra.anual,
     };
   }
 
-  // Calcular cuantía según ingresos
-  // Fórmula simplificada: Cuantía = Cuantía Íntegra - Ingresos Personales
-  const cuantiaAnual = Math.max(
-    cuantiaMinima.anual,
-    cuantiaIntegra.anual - formData.ingresosAnualesPersonales
-  );
+  // Los primeros 3.081,12€ están exentos
+  const ingresosComputables = Math.max(0, ingresosBase - ingresoExento);
 
-  // Si la cuantía es menor al mínimo, no hay derecho
-  if (cuantiaAnual < cuantiaMinima.anual) {
-    return { mensual: 0, anual: 0 };
-  }
+  // Fórmula oficial: Cuantía = Pensión anual íntegra - Ingresos computables
+  const cuantiaAnual = cuantiaIntegra.anual - ingresosComputables;
 
-  const cuantiaMensual = cuantiaAnual / 14;
+  // Aplicar límite mínimo de 2.200,8€ anuales
+  const cuantiaFinal = Math.max(cuantiaMinima.anual, cuantiaAnual);
+
+  // Si la cuantía calculada es menor al mínimo establecido, se asigna el mínimo
+  const cuantiaMensual = cuantiaFinal / 14;
 
   return {
     mensual: cuantiaMensual,
-    anual: cuantiaAnual,
+    anual: cuantiaFinal,
   };
 }
 

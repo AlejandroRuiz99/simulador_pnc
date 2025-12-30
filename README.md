@@ -104,7 +104,7 @@ Los parámetros de cálculo están en `types/simulator.ts`:
 
 ### Actualizar Datos
 
-Para actualizar las cuantías y límites, modifica `PARAMETROS_2025` en `types/simulator.ts`.
+Para actualizar las cuantías y límites, modifica `PARAMETROS_2026` en `types/simulator.ts`.
 
 ## 🚀 Deploy en Vercel
 

@@ -116,7 +116,7 @@ Reemplazar: tudominio.com
 
 ### Parámetros a Actualizar
 ```typescript
-export const PARAMETROS_2025 = {
+export const PARAMETROS_2026 = {
   cuantiaIntegra: {
     anual: 7250.60,    // ← Nueva cuantía anual
     mensual: 517.90,   // ← Nueva cuantía mensual

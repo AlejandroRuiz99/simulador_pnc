@@ -22,6 +22,11 @@ export interface FormData {
   conviveConyuge: boolean;
   numeroConvivientes: number;
   ingresosAnualesFamiliares: number;
+  conviveConPadresOHijos: boolean; // Para límite tipo B
+  
+  // Paso 6: Información adicional (solo para invalidez)
+  necesitaTerceraPersona: boolean; // Complemento de tercera persona
+  trabajaConInvalidez: boolean; // Si trabaja y tiene invalidez (primeros 4 años)
 }
 
 export interface Requirement {
@@ -45,24 +50,51 @@ export interface SimulationResult {
   recomendaciones: string[];
 }
 
-export const PARAMETROS_2025 = {
+export const PARAMETROS_2026 = {
   cuantiaIntegra: {
-    anual: 7250.60,
-    mensual: 517.90,
+    anual: 8803.2,
+    mensual: 628.80, // 8803.2 / 14
     pagas: 14,
   },
   cuantiaMinima: {
-    anual: 1812.65,
+    anual: 2200.8,
+    mensual: 157.2, // 2200.8 / 14
   },
+  ingresoExento: 3081.12, // Los primeros 3081,12€ no computan
   limitesIngresos: {
-    individual: 7250.60,
-    familiar: {
-      2: 12326.02,
-      3: 17401.44,
-      4: 22476.86,
-      5: 27552.28,
+    individual: 8803.2,
+    // Tipo A: Convivencia solo con cónyuge y/o parientes consanguíneos de segundo grado
+    familiarTipoA: {
+      2: 14965.44,
+      3: 21127.68,
+      4: 27289.92,
+      5: 33452.16, // Extrapolado (incremento de 6137.76 por persona)
     },
-    conyugeAmbosRequisitos: 23551.53,
+    // Tipo B: Si entre los parientes hay padres o hijos
+    familiarTipoB: {
+      2: 37413.6,
+      3: 52819.2,
+      4: 68224.8,
+      5: 83630.4, // Extrapolado (incremento de 15405.6 por persona)
+    },
+    // Para invalidez con complemento de tercera persona
+    invalidezTerceraPersona: {
+      individual: 13204.8,
+      tipoA: {
+        2: 19367.4,
+        3: 25529.28,
+        4: 31691.52,
+        5: 37853.76, // Extrapolado
+      },
+      tipoB: {
+        2: 48418.5,
+        3: 63823.2,
+        4: 79228.8,
+        5: 94634.4, // Extrapolado
+      },
+    },
+    // Especialidad: invalidez con trabajo (primeros 4 años)
+    invalidezConTrabajo: 16003.2,
   },
   requisitos: {
     jubilacion: {
@@ -72,7 +104,7 @@ export const PARAMETROS_2025 = {
     },
     invalidez: {
       edadMinima: 18,
-      edadMaxima: 64,
+      edadMaxima: 65, // Hasta 65 años inclusive
       gradoDiscapacidadMinimo: 65,
       anosResidencia: 5,
       anosConsecutivos: 2,

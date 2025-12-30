@@ -29,7 +29,7 @@ Si necesitas cambiarlo, edita `components/WhatsAppButton.tsx` (línea 10)
 
 Edita `types/simulator.ts` (líneas 40-60):
 ```typescript
-export const PARAMETROS_2025 = {
+export const PARAMETROS_2026 = {
   cuantiaIntegra: {
     anual: 7250.60,  // ← Nueva cuantía anual
     mensual: 517.90, // ← Nueva cuantía mensual

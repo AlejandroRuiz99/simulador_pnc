@@ -183,7 +183,7 @@ El sitio incluye referencias a:
 Cada año, cuando se actualicen las cuantías:
 
 1. Edita `types/simulator.ts`
-2. Actualiza los valores de `PARAMETROS_2025`
+2. Actualiza los valores de `PARAMETROS_2026`
 3. Haz push a GitHub
 4. Vercel despliega automáticamente
 
