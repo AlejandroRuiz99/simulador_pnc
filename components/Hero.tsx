@@ -66,10 +66,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
           >
-            ¿Tienes derecho a una{' '}
             <span className="gold-text-gradient">
-              Pensión No Contributiva
-            </span>?
+              Simulador Pensión No Contributiva 2026
+            </span>
+            {' '}Gratis
           </motion.h1>
 
           {/* Subtítulo */}
@@ -79,8 +79,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl"
           >
-            Descubre en minutos si cumples los requisitos para acceder a una pensión no contributiva en España. 
-            <span className="text-gold font-semibold"> Simulador gratuito</span> basado en la legislación actualizada 2026.
+            Calcula en 2 minutos si tienes derecho a una pensión no contributiva de jubilación o invalidez. 
+            <span className="text-gold font-semibold"> Resultados inmediatos</span> basados en la legislación actualizada 2026. Cuantía: 628,80€/mes.
           </motion.p>
 
           {/* Badges informativos */}

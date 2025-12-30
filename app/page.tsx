@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Simulador de Pensión No Contributiva 2026 - Calcula tu Elegibilidad Gratis",
-  description: "✓ Simulador oficial de Pensión No Contributiva en España 2026. Calcula en 2 minutos si cumples requisitos para jubilación o invalidez no contributiva. Gratuito, privado y basado en la ley vigente. Cuantía actual: 628,80€/mes.",
+  title: "Simulador Pensión No Contributiva 2026 - Calcula Gratis tu Elegibilidad Online",
+  description: "🎯 SIMULADOR PENSIÓN NO CONTRIBUTIVA 2026 ✓ Calcula GRATIS en 2 minutos ✓ Jubilación e Invalidez ✓ Actualizado 2026 ✓ Cuantía: 628,80€/mes ✓ Gestión completa incluida ✓ Resultados inmediatos",
   alternates: {
     canonical: "https://simuladorpensionnocontributiva.com",
   },

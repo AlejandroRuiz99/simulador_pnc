@@ -10,7 +10,7 @@ export default function StructuredData() {
       price: '0',
       priceCurrency: 'EUR',
     },
-    description: 'Simulador gratuito para calcular la elegibilidad para pensiones no contributivas en España según la legislación vigente 2026.',
+    description: 'Simulador Pensión No Contributiva 2026 - Calculadora gratuita para determinar tu elegibilidad para pensiones no contributivas de jubilación e invalidez en España según la legislación vigente 2026.',
     provider: {
       '@type': 'LegalService',
       name: 'Compromiso Legal',
@@ -110,7 +110,7 @@ export default function StructuredData() {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'Inicio',
+        name: 'Simulador Pensión No Contributiva 2026',
         item: 'https://simuladorpensionnocontributiva.com',
       },
     ],
