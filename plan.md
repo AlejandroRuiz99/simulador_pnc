@@ -2,7 +2,7 @@
 
 ## 📋 Resumen Ejecutivo
 
-Desarrollo de una landing page moderna con un simulador interactivo que permita a cualquier ciudadano en España determinar si cumple los requisitos para acceder a una **Pensión No Contributiva (PNC)** según la legislación española vigente en 2025.
+Desarrollo de una landing page moderna con un simulador interactivo que permita a cualquier ciudadano en España determinar si cumple los requisitos para acceder a una **Pensión No Contributiva (PNC)** según la legislación española vigente en 2026.
 
 ---
 
@@ -16,7 +16,7 @@ Crear una herramienta accesible, intuitiva y precisa que:
 
 ---
 
-## 📚 Marco Legal y Requisitos (Actualizado 2025)
+## 📚 Marco Legal y Requisitos (Actualizado 2026)
 
 ### Tipos de Pensiones No Contributivas
 
@@ -33,7 +33,7 @@ Crear una herramienta accesible, intuitiva y precisa que:
 - ✅ **Residencia:** Haber residido en España durante al menos 5 años, de los cuales 2 deben ser consecutivos e inmediatamente anteriores a la solicitud
 - ✅ **Ingresos:** Carecer de ingresos suficientes
 
-### Límites de Ingresos 2025
+### Límites de Ingresos 2026
 
 | Situación | Límite de ingresos anuales |
 |-----------|---------------------------|
@@ -47,7 +47,7 @@ Crear una herramienta accesible, intuitiva y precisa que:
 - Si convive solo con cónyuge/pareja: límite de 23.551,53 € (si ambos cumplen requisitos excepto ingresos)
 - Los ingresos se calculan sumando todos los ingresos de la unidad de convivencia
 
-### Cuantía de la Pensión 2025
+### Cuantía de la Pensión 2026
 
 - **Cuantía íntegra:** 7.250,60 € anuales (517,90 €/mes × 14 pagas)
 - **Cuantía mínima:** 1.812,65 € anuales (cuando hay convivientes con rentas)
@@ -382,8 +382,8 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
 
 ```json
 {
-  "version": "2025.1",
-  "fechaActualizacion": "2025-01-01",
+  "version": "2026.1",
+  "fechaActualizacion": "2026-01-01",
   "parametros": {
     "cuantiaIntegra": {
       "anual": 7250.60,
@@ -651,7 +651,7 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
 > Es una prestación económica para personas sin recursos que no han cotizado lo suficiente para una pensión contributiva.
 
 **2. ¿Cuánto se cobra?**
-> En 2025, la cuantía máxima es de 517,90 € mensuales (14 pagas). La cantidad puede variar según ingresos y convivencia.
+> En 2026, la cuantía máxima es de 628,80 € mensuales (14 pagas). La cantidad puede variar según ingresos y convivencia.
 
 **3. ¿Es compatible con trabajar?**
 > Sí, pero los ingresos del trabajo se tienen en cuenta y pueden reducir la cuantía o causar la suspensión de la pensión.
@@ -713,7 +713,7 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
 3. **Ley General de la Seguridad Social (Real Decreto Legislativo 8/2015)**
    - Texto refundido
 
-4. **Presupuestos Generales del Estado 2025**
+4. **Presupuestos Generales del Estado 2026**
    - Actualización de cuantías
 
 ### Fuentes de Consulta
@@ -945,15 +945,15 @@ Este plan está diseñado para ser:
 - ✅ **Completo**: Cubre todos los aspectos del desarrollo
 - ✅ **Flexible**: Se puede adaptar según necesidades
 - ✅ **Realista**: Tiempos y recursos viables
-- ✅ **Legal**: Basado en normativa vigente 2025
+- ✅ **Legal**: Basado en normativa vigente 2026
 - ✅ **Accesible**: Cumple estándares de accesibilidad
 - ✅ **Mantenible**: Fácil de actualizar en el futuro
 
 ---
 
 **Versión del plan:** 1.0  
-**Fecha de creación:** Diciembre 2025  
-**Última actualización:** Diciembre 2025  
+**Fecha de creación:** Enero 2026  
+**Última actualización:** Enero 2026  
 **Estado:** ✅ Completo y listo para desarrollo
 
 ---

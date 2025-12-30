@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://tu-dominio.vercel.app'), // Cambiar por tu dominio real
   title: {
-    default: "Simulador de Pensión No Contributiva 2025 | Compromiso Legal",
+    default: "Simulador de Pensión No Contributiva 2026 | Compromiso Legal",
     template: "%s | Compromiso Legal"
   },
-  description: "✓ Simulador gratuito de Pensión No Contributiva en España 2025. Calcula si tienes derecho a jubilación o invalidez no contributiva. Resultados inmediatos basados en la ley vigente. 517,90€/mes.",
+  description: "✓ Simulador gratuito de Pensión No Contributiva en España 2026. Calcula si tienes derecho a jubilación o invalidez no contributiva. Resultados inmediatos basados en la ley vigente. 628,80€/mes.",
   keywords: [
     "pensión no contributiva",
     "PNC España",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "jubilación no contributiva",
     "invalidez no contributiva",
     "seguridad social",
-    "pensión 2025",
+    "pensión 2026",
     "requisitos pensión",
     "calcular pensión",
     "ayuda jubilación",
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: "https://tu-dominio.vercel.app",
     siteName: "Simulador Pensión No Contributiva",
-    title: "Simulador de Pensión No Contributiva 2025 - Calcula tu Elegibilidad",
-    description: "Descubre en minutos si tienes derecho a una pensión no contributiva en España. Simulador gratuito, privado y actualizado a 2025. Cuantía: 517,90€/mes.",
+    title: "Simulador de Pensión No Contributiva 2026 - Calcula tu Elegibilidad",
+    description: "Descubre en minutos si tienes derecho a una pensión no contributiva en España. Simulador gratuito, privado y actualizado a 2026. Cuantía: 628,80€/mes.",
     images: [
       {
         url: '/og-image.png',
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@compromisolegal',
     creator: '@compromisolegal',
-    title: "Simulador de Pensión No Contributiva 2025",
+    title: "Simulador de Pensión No Contributiva 2026",
     description: "✓ Calcula si tienes derecho a una pensión no contributiva en España. Gratuito, privado y actualizado. 517,90€/mes",
     images: ['/og-image.png'],
   },

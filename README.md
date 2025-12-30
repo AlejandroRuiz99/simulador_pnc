@@ -8,7 +8,7 @@ Landing page moderna con simulador interactivo para determinar la elegibilidad p
 - 📱 Diseño responsive (mobile-first)
 - 🎨 Tema negro y dorado alineado con Compromiso Legal
 - 🧮 Simulador paso a paso intuitivo
-- 📊 Cálculo preciso basado en la legislación española 2025
+- 📊 Cálculo preciso basado en la legislación española 2026
 - 💬 Botón flotante de WhatsApp
 - ♿ Accesible (WCAG 2.1)
 - 🚀 Optimizado para Vercel
@@ -91,7 +91,7 @@ const whatsappNumber = '34123456789'; // Reemplazar con el número real
 
 Coloca tu logo en `public/complete_logo.png`
 
-## 📊 Datos Legales (2025)
+## 📊 Datos Legales (2026)
 
 Los parámetros de cálculo están en `types/simulator.ts`:
 
@@ -149,7 +149,7 @@ Este simulador tiene carácter meramente orientativo. Los resultados no constitu
 ## 👥 Créditos
 
 Desarrollado para **Compromiso Legal**  
-© 2025 Todos los derechos reservados
+© 2026 Todos los derechos reservados
 
 ## 📝 Licencia
 

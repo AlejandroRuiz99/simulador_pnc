@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Simulador de Pensión No Contributiva 2025 - Calcula tu Elegibilidad Gratis",
-  description: "✓ Simulador oficial de Pensión No Contributiva en España 2025. Calcula en 2 minutos si cumples requisitos para jubilación o invalidez no contributiva. Gratuito, privado y basado en la ley vigente. Cuantía actual: 517,90€/mes.",
+  title: "Simulador de Pensión No Contributiva 2026 - Calcula tu Elegibilidad Gratis",
+  description: "✓ Simulador oficial de Pensión No Contributiva en España 2026. Calcula en 2 minutos si cumples requisitos para jubilación o invalidez no contributiva. Gratuito, privado y basado en la ley vigente. Cuantía actual: 628,80€/mes.",
   alternates: {
     canonical: "https://tu-dominio.vercel.app",
   },

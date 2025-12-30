@@ -137,7 +137,7 @@ export default function Footer() {
             © {new Date().getFullYear()} <a href="https://compromisolegal.es" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Compromiso Legal</a>. Todos los derechos reservados.
           </p>
           <p className="text-xs">
-            Basado en la legislación española vigente en 2025 · Última actualización: Diciembre 2025
+            Basado en la legislación española vigente en 2026 · Última actualización: Enero 2026
           </p>
         </div>
       </div>

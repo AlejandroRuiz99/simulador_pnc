@@ -126,13 +126,13 @@ export default function WhatIsPNC() {
             className="bg-gradient-to-r from-gold/20 via-gold/10 to-gold/20 border-2 border-gold/40 rounded-2xl p-8 text-center"
           >
             <h3 className="text-xl font-semibold text-gray-300 mb-4">
-              Cuantía 2025
+              Cuantía 2026
             </h3>
             <div className="text-5xl md:text-6xl font-bold gold-text-gradient mb-2">
-              517,90€
+              628,80€
             </div>
             <p className="text-gray-400">
-              mensuales (14 pagas) · <span className="text-gold">7.250,60€</span> anuales
+              mensuales (14 pagas) · <span className="text-gold">8.803,2€</span> anuales
             </p>
             <p className="text-sm text-gray-500 mt-4">
               *La cuantía puede variar según los ingresos y la unidad de convivencia

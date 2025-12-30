@@ -15,8 +15,8 @@ export default function FAQ() {
       answer: 'Es una prestación económica que otorga la Seguridad Social a personas en situación de necesidad que no han cotizado lo suficiente para acceder a una pensión contributiva. Su objetivo es garantizar un ingreso mínimo.',
     },
     {
-      question: '¿Cuánto se cobra en 2025?',
-      answer: 'La cuantía máxima para 2025 es de 517,90€ mensuales (7.250,60€ anuales en 14 pagas). La cantidad puede variar según tus ingresos personales y familiares. Si vives en familia, la cuantía se calcula proporcionalmente.',
+      question: '¿Cuánto se cobra en 2026?',
+      answer: 'La cuantía máxima para 2026 es de 628,80€ mensuales (8.803,2€ anuales en 14 pagas). La cantidad puede variar según tus ingresos personales y familiares. Si vives en familia, la cuantía se calcula proporcionalmente.',
     },
     {
       question: '¿Es compatible con trabajar?',

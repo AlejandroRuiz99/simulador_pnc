@@ -80,7 +80,7 @@ export default function Hero() {
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl"
           >
             Descubre en minutos si cumples los requisitos para acceder a una pensión no contributiva en España. 
-            <span className="text-gold font-semibold"> Simulador gratuito</span> basado en la legislación actualizada 2025.
+            <span className="text-gold font-semibold"> Simulador gratuito</span> basado en la legislación actualizada 2026.
           </motion.p>
 
           {/* Badges informativos */}

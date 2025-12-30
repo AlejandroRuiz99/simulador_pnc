@@ -10,7 +10,7 @@ export default function StructuredData() {
       price: '0',
       priceCurrency: 'EUR',
     },
-    description: 'Simulador gratuito para calcular la elegibilidad para pensiones no contributivas en España según la legislación vigente 2025.',
+    description: 'Simulador gratuito para calcular la elegibilidad para pensiones no contributivas en España según la legislación vigente 2026.',
     provider: {
       '@type': 'LegalService',
       name: 'Compromiso Legal',
@@ -130,10 +130,10 @@ export default function StructuredData() {
       },
       {
         '@type': 'Question',
-        name: '¿Cuánto se cobra en 2025?',
+        name: '¿Cuánto se cobra en 2026?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'La cuantía máxima para 2025 es de 517,90€ mensuales (7.250,60€ anuales en 14 pagas). La cantidad puede variar según tus ingresos personales y familiares.',
+          text: 'La cuantía máxima para 2026 es de 628,80€ mensuales (8.803,2€ anuales en 14 pagas). La cantidad puede variar según tus ingresos personales y familiares.',
         },
       },
       {
