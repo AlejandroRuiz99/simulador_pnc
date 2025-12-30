@@ -37,20 +37,32 @@ Crear una herramienta accesible, intuitiva y precisa que:
 
 | Situación | Límite de ingresos anuales |
 |-----------|---------------------------|
-| **Individual** | 7.250,60 € |
-| **Unidad familiar de 2 personas** | 12.326,02 € |
-| **Unidad familiar de 3 personas** | 17.401,44 € |
-| **Unidad familiar de 4 personas** | 22.476,86 € |
-| **Unidad familiar de 5 o más personas** | 27.552,28 € |
+| **Individual** | 8.803,2 € |
+
+**Tipo A - Convivencia con cónyuge/parientes de 2º grado (sin padres ni hijos):**
+| Nº de convivientes | Límite de ingresos anuales |
+|-------------------|---------------------------|
+| **2 personas** | 14.965,44 € |
+| **3 personas** | 21.127,68 € |
+| **4 personas** | 27.289,92 € |
+| **5 o más personas** | 33.452,16 € |
+
+**Tipo B - Convivencia con padres o hijos:**
+| Nº de convivientes | Límite de ingresos anuales |
+|-------------------|---------------------------|
+| **2 personas** | 37.413,6 € |
+| **3 personas** | 52.819,2 € |
+| **4 personas** | 68.224,8 € |
+| **5 o más personas** | 83.630,4 € |
 
 **Notas importantes:**
-- Si convive solo con cónyuge/pareja: límite de 23.551,53 € (si ambos cumplen requisitos excepto ingresos)
 - Los ingresos se calculan sumando todos los ingresos de la unidad de convivencia
+- El tipo de convivencia (A o B) determina el límite aplicable
 
 ### Cuantía de la Pensión 2026
 
-- **Cuantía íntegra:** 7.250,60 € anuales (517,90 €/mes × 14 pagas)
-- **Cuantía mínima:** 1.812,65 € anuales (cuando hay convivientes con rentas)
+- **Cuantía íntegra:** 8.803,2 € anuales (628,80 €/mes × 14 pagas)
+- **Cuantía mínima:** 2.200,8 € anuales (157,2 €/mes)
 - La cuantía puede variar según los ingresos de la unidad familiar
 
 ---
@@ -351,8 +363,8 @@ function evaluarElegibilidad(datosUsuario) {
 
 ```javascript
 function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes) {
-  const CUANTIA_INTEGRA_ANUAL = 7250.60;
-  const CUANTIA_MENSUAL = 517.90; // 14 pagas
+  const CUANTIA_INTEGRA_ANUAL = 8803.2;
+  const CUANTIA_MENSUAL = 628.80; // 14 pagas
   
   // Si no tiene ingresos ni convivientes
   if (ingresosPersonales === 0 && numConvivientes === 1) {
@@ -365,7 +377,7 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
   const cuantiaMensual = cuantiaAnual / 14;
   
   // Mínimo garantizado
-  const CUANTIA_MINIMA_ANUAL = 1812.65;
+  const CUANTIA_MINIMA_ANUAL = 2200.8;
   if (cuantiaAnual < CUANTIA_MINIMA_ANUAL) {
     return 0; // No hay derecho si la cuantía sería inferior al mínimo
   }
@@ -386,20 +398,20 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
   "fechaActualizacion": "2026-01-01",
   "parametros": {
     "cuantiaIntegra": {
-      "anual": 7250.60,
-      "mensual": 517.90,
+      "anual": 8803.2,
+      "mensual": 628.80,
       "pagas": 14
     },
     "cuantiaMinima": {
-      "anual": 1812.65
+      "anual": 2200.8
     },
     "limitesIngresos": {
-      "individual": 7250.60,
+      "individual": 8803.2,
       "familiar": {
-        "2personas": 12326.02,
-        "3personas": 17401.44,
-        "4personas": 22476.86,
-        "5omaspersonas": 27552.28
+        "2personas": 14965.44,
+        "3personas": 21127.68,
+        "4personas": 27289.92,
+        "5omaspersonas": 33452.16
       },
       "conyugeAmbosRequisitos": 23551.53
     },
@@ -654,7 +666,7 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
 > En 2026, la cuantía máxima es de 628,80 € mensuales (14 pagas). La cantidad puede variar según ingresos y convivencia.
 
 **3. ¿Es compatible con trabajar?**
-> Sí, pero los ingresos del trabajo se tienen en cuenta y pueden reducir la cuantía o causar la suspensión de la pensión.
+> **Solo la pensión de invalidez no contributiva es compatible con trabajar.** Durante los primeros 4 años trabajando, se aplica un límite especial de ingresos de 16.003,2€ anuales (incluyendo pensión + salario). La pensión de jubilación no contributiva NO es compatible con trabajo. Para más información sobre tu caso específico, consulta con expertos.
 
 **4. ¿Se puede cobrar junto a otras ayudas?**
 > Depende del tipo de ayuda. No es compatible con otras pensiones de la Seguridad Social, pero sí con algunas ayudas autonómicas.
@@ -662,8 +674,8 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
 **5. ¿Cuánto tarda la resolución?**
 > El plazo máximo es de 90 días desde la presentación de la solicitud completa.
 
-**6. ¿Puedo solicitarla desde el extranjero?**
-> Sí, si eres español en el extranjero, puedes solicitarla a través de consulados.
+**6. ¿Puedo solicitarla o cobrarla desde el extranjero?**
+> Las pensiones no contributivas están pensadas para residentes en España. Sin embargo, existen las **pensiones de ancianidad** (modalidad no contributiva especial) que se reconocen a **españoles de origen que viven en el extranjero** y cumplen ciertos requisitos específicos. Para información sobre tu caso, contacta con expertos o con el consulado español en tu país.
 
 **7. ¿La pensión incluye asistencia sanitaria?**
 > Sí, da derecho a la tarjeta sanitaria y asistencia médica gratuita.
@@ -729,7 +741,6 @@ function calcularCuantia(ingresosPersonales, ingresosFamiliares, numConvivientes
 
 ### Teléfonos de Atención
 
-- **Información General Seguridad Social**: 901 16 65 65
 - **Atención a personas con discapacidad auditiva**: 901 12 31 23
 - **Desde el extranjero**: +34 915 41 25 30
 

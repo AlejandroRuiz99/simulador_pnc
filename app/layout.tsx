@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     site: '@compromisolegal',
     creator: '@compromisolegal',
     title: "Simulador de Pensión No Contributiva 2026",
-    description: "✓ Calcula si tienes derecho a una pensión no contributiva en España. Gratuito, privado y actualizado. 517,90€/mes",
+    description: "✓ Calcula si tienes derecho a una pensión no contributiva en España. Gratuito, privado y actualizado. 628,80€/mes",
     images: ['/og-image.png'],
   },
   alternates: {

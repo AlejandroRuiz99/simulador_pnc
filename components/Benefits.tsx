@@ -16,7 +16,7 @@ export default function Benefits() {
         </svg>
       ),
       title: 'Cuantía Económica',
-      description: '517,90€ mensuales en 14 pagas (7.250,60€ anuales). La cantidad puede variar según tus ingresos y unidad familiar.',
+      description: '628,80€ mensuales en 14 pagas (8.803,2€ anuales). La cantidad puede variar según tus ingresos y unidad familiar.',
     },
     {
       icon: (
@@ -60,8 +60,8 @@ export default function Benefits() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
         </svg>
       ),
-      title: 'Compatible con Trabajo',
-      description: 'Puedes trabajar y mantener la pensión, aunque los ingresos del trabajo se tendrán en cuenta y pueden reducir la cuantía.',
+      title: 'Compatible con Trabajo*',
+      description: 'Solo la pensión de invalidez no contributiva es compatible con trabajar, con límites específicos aplicables durante los primeros 4 años. Nuestro equipo te asesora y gestiona todo por ti.',
     },
   ];
 
@@ -119,8 +119,8 @@ export default function Benefits() {
               <h4 className="font-bold text-gold mb-2">Información Importante</h4>
               <p className="text-gray-300 text-sm leading-relaxed">
                 Las pensiones no contributivas son incompatibles con otras pensiones de la Seguridad Social del
-                sistema español o de otros países, salvo las pensiones de viudedad. Si tienes dudas sobre
-                compatibilidades, consulta con la Seguridad Social o con nuestro equipo de expertos.
+                sistema español o de otros países, salvo las pensiones de viudedad. ¿Tienes dudas sobre
+                compatibilidades? Déjanos analizar tu caso: estudiamos todas las ayudas que puedes solicitar.
               </p>
             </div>
           </div>

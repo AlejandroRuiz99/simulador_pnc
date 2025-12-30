@@ -36,8 +36,8 @@ export default function Requirements() {
         </svg>
       ),
       title: 'Ingresos',
-      jubilacion: 'Menos de 7.250,60€ anuales',
-      invalidez: 'Menos de 7.250,60€ anuales',
+      jubilacion: 'Menos de 8.803,2€ anuales',
+      invalidez: 'Menos de 8.803,2€ anuales',
     },
     {
       icon: (

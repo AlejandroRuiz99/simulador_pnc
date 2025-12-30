@@ -95,12 +95,23 @@ Coloca tu logo en `public/complete_logo.png`
 
 Los parámetros de cálculo están en `types/simulator.ts`:
 
-- **Cuantía íntegra**: 7.250,60€/año (517,90€/mes × 14 pagas)
-- **Límite ingresos individual**: 7.250,60€/año
-- **Límites familiares**: Varían según número de convivientes
+- **Cuantía íntegra**: 8.803,2€/año (628,80€/mes × 14 pagas)
+- **Límite ingresos individual**: 8.803,2€/año
+- **Límites familiares**: Varían según número de convivientes y tipo de convivencia
 - **Edad jubilación**: 65 años o más
 - **Edad invalidez**: 18-65 años
 - **Grado discapacidad mínimo**: 65%
+
+**⚠️ Notas importantes:**
+
+**Compatibilidad con trabajo:**
+- ✅ La pensión de **invalidez** no contributiva **SÍ es compatible** con trabajar (límite especial: 16.003,2€ anuales los primeros 4 años)
+- ❌ La pensión de **jubilación** no contributiva **NO es compatible** con trabajar
+
+**Residencia en el extranjero:**
+- Las pensiones no contributivas están pensadas para residentes en España
+- Existen **pensiones de ancianidad** (modalidad especial) para españoles de origen que viven en el extranjero
+- Para más información sobre casos específicos, consulta con expertos o el consulado español
 
 ### Actualizar Datos
 
@@ -142,9 +153,7 @@ Este simulador tiene carácter meramente orientativo. Los resultados no constitu
 
 ## 🔗 Enlaces Útiles
 
-- [Seguridad Social](https://www.seg-social.es)
-- [Sede Electrónica](https://sede.seg-social.gob.es)
-- [Compromiso Legal](https://compromisolegal.com)
+- [Compromiso Legal](https://compromisolegal.es)
 
 ## 👥 Créditos
 

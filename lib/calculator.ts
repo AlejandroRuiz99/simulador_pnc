@@ -105,9 +105,9 @@ export function calcularElegibilidad(formData: FormData): SimulationResult {
     );
 
     resultado.recomendaciones.push(
-      'Solicita cita previa en tu oficina de la Seguridad Social más cercana.',
-      'Prepara la documentación necesaria: DNI, certificado de empadronamiento, certificados de ingresos.',
-      'Si tienes dudas, nuestro equipo de Compromiso Legal puede asesorarte.'
+      '¡Déjanos ayudarte! En Compromiso Legal gestionamos todo el proceso de solicitud por ti.',
+      'Recopilamos tu documentación, la revisamos, presentamos tu solicitud y hacemos seguimiento.',
+      'Tú solo te relajas mientras nosotros nos encargamos de todo el papeleo y trámites.'
     );
   } else {
     resultado.mensajes.push(
@@ -149,7 +149,7 @@ export function calcularElegibilidad(formData: FormData): SimulationResult {
     }
 
     resultado.recomendaciones.push(
-      'Consulta con un trabajador social o con nuestro equipo de Compromiso Legal para explorar otras ayudas disponibles.'
+      '¿No cumples todos los requisitos? Nuestro equipo puede analizar tu caso y encontrar ayudas alternativas a las que sí puedas acceder. Contacta con nosotros para un análisis personalizado gratuito.'
     );
   }
 

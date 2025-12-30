@@ -20,19 +20,19 @@ export default function FAQ() {
     },
     {
       question: '¿Es compatible con trabajar?',
-      answer: 'Sí, puedes trabajar y mantener la pensión no contributiva. Sin embargo, los ingresos del trabajo se tendrán en cuenta y pueden reducir la cuantía de la pensión o incluso suspenderla si superas los límites establecidos.',
+      answer: 'Solo la pensión de invalidez no contributiva es compatible con trabajar. Durante los primeros 4 años trabajando, se aplica un límite de ingresos especial más alto (16.003,2€ anuales). La pensión de jubilación no contributiva no es compatible con trabajo. ¿Tu caso es específico? Nuestros expertos te asesoran personalmente y te ayudamos a maximizar tus derechos.',
     },
     {
       question: '¿Se puede cobrar junto a otras ayudas?',
-      answer: 'No es compatible con otras pensiones de la Seguridad Social del sistema español o de otros países, excepto con las pensiones de viudedad. Sí puede ser compatible con algunas ayudas autonómicas o locales. Consulta tu caso específico.',
+      answer: 'No es compatible con otras pensiones de la Seguridad Social del sistema español o de otros países, excepto con las pensiones de viudedad. Sí puede ser compatible con algunas ayudas autonómicas o locales. Déjanos estudiar tu caso: analizamos todas las ayudas que puedes solicitar simultáneamente.',
     },
     {
       question: '¿Cuánto tarda la resolución?',
       answer: 'El plazo máximo legal es de 90 días desde la presentación de la solicitud completa con toda la documentación. Si en ese plazo no hay resolución expresa, se entiende desestimada (silencio administrativo negativo).',
     },
     {
-      question: '¿Puedo solicitarla desde el extranjero?',
-      answer: 'Sí, si eres español en el extranjero, puedes presentar la solicitud a través de los consulados o embajadas de España. Debes cumplir igualmente con todos los requisitos de residencia previa en España.',
+      question: '¿Puedo solicitarla o cobrarla desde el extranjero?',
+      answer: 'Las pensiones no contributivas están pensadas para residentes en España. Sin embargo, existen las pensiones de ancianidad (modalidad no contributiva especial) que se reconocen a españoles de origen que viven en el extranjero y cumplen ciertos requisitos específicos. ¿Vives fuera de España? Nuestro equipo te asesora sobre las opciones disponibles y gestiona todo el proceso contigo, sin importar dónde estés.',
     },
     {
       question: '¿La pensión incluye asistencia sanitaria?',
@@ -43,12 +43,8 @@ export default function FAQ() {
       answer: 'Sí, las cuantías de las pensiones no contributivas se actualizan anualmente en los Presupuestos Generales del Estado, generalmente para mantener el poder adquisitivo frente a la inflación.',
     },
     {
-      question: '¿Qué documentación necesito?',
-      answer: 'Necesitarás: DNI/NIE, certificado de empadronamiento histórico, libro de familia (si procede), declaración de la renta o certificados de ingresos de todos los miembros de la unidad familiar, certificados bancarios y, para invalidez, certificado de discapacidad del 65% o superior.',
-    },
-    {
-      question: '¿Dónde presento la solicitud?',
-      answer: 'Puedes presentar la solicitud en: oficinas de la Seguridad Social (con cita previa), centros de atención e información de la Seguridad Social, oficinas de registro, o por internet si dispones de certificado digital o Cl@ve.',
+      question: '¿Qué documentación necesito y dónde la presento?',
+      answer: '¡Deja que nosotros nos encarguemos! En Compromiso Legal gestionamos todo el proceso por ti: recopilamos la documentación necesaria, revisamos que esté completa y correcta, presentamos tu solicitud ante la Seguridad Social y hacemos el seguimiento hasta la resolución. Tú solo tienes que sentarte y esperar. Contacta con nosotros y te lo ponemos fácil.',
     },
   ];
 
@@ -69,7 +65,7 @@ export default function FAQ() {
             Preguntas <span className="gold-text-gradient">Frecuentes</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Resuelve tus dudas sobre las pensiones no contributivas
+            Todo lo que necesitas saber sobre las pensiones no contributivas
           </p>
           <div className="w-24 h-1 bg-gold mx-auto mt-6 rounded-full" />
         </motion.div>
@@ -127,7 +123,7 @@ export default function FAQ() {
           className="mt-16 text-center"
         >
           <p className="text-lg text-gray-300 mb-6">
-            ¿Tienes más preguntas? Nuestro equipo de expertos puede ayudarte
+            ¿Listo para solicitar tu pensión sin complicaciones?
           </p>
           <a
             href="https://compromisolegal.es"
@@ -135,7 +131,7 @@ export default function FAQ() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-yellow-500 text-black rounded-lg font-bold hover:shadow-lg hover:shadow-gold/50 transition-all duration-300"
           >
-            Contactar con expertos
+            Nosotros gestionamos tu solicitud
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

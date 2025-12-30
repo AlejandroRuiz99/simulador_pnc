@@ -141,7 +141,7 @@ export default function StructuredData() {
         name: '¿Es compatible con trabajar?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Sí, puedes trabajar y mantener la pensión no contributiva. Sin embargo, los ingresos del trabajo se tendrán en cuenta y pueden reducir la cuantía de la pensión o suspenderla si superas los límites establecidos.',
+          text: 'Solo la pensión de invalidez no contributiva es compatible con trabajar. Durante los primeros 4 años trabajando, se aplica un límite de ingresos especial de 16.003,2€ anuales. La pensión de jubilación no contributiva no es compatible con trabajo.',
         },
       },
       {
