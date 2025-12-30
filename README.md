@@ -127,7 +127,9 @@ Para actualizar las cuantías y límites, modifica `PARAMETROS_2026` en `types/s
    - Configura las variables de entorno (si las hay)
    - Deploy
 
-3. Configura tu dominio personalizado en Vercel Settings
+3. Configura tu dominio personalizado en Vercel Settings:
+   - Dominio: **simuladorpensionnocontributiva.com**
+   - Añade el dominio en Vercel → Project Settings → Domains
 
 ## 📱 Scripts Disponibles
 

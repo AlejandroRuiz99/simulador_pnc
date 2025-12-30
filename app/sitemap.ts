@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tu-dominio.vercel.app'; // Cambiar por tu dominio real
+  const baseUrl = 'https://simuladorpensionnocontributiva.com';
 
   return [
     {

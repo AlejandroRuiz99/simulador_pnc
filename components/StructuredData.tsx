@@ -111,7 +111,7 @@ export default function StructuredData() {
         '@type': 'ListItem',
         position: 1,
         name: 'Inicio',
-        item: 'https://tu-dominio.vercel.app',
+        item: 'https://simuladorpensionnocontributiva.com',
       },
     ],
   };

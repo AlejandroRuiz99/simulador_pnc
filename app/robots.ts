@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/'],
       },
     ],
-    sitemap: 'https://tu-dominio.vercel.app/sitemap.xml',
+    sitemap: 'https://simuladorpensionnocontributiva.com/sitemap.xml',
   };
 }
 

@@ -7,7 +7,7 @@ import StructuredData from "@/components/StructuredData";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tu-dominio.vercel.app'), // Cambiar por tu dominio real
+  metadataBase: new URL('https://simuladorpensionnocontributiva.com'),
   title: {
     default: "Simulador de Pensión No Contributiva 2026 | Compromiso Legal",
     template: "%s | Compromiso Legal"
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://tu-dominio.vercel.app",
+    url: "https://simuladorpensionnocontributiva.com",
     siteName: "Simulador Pensión No Contributiva",
     title: "Simulador de Pensión No Contributiva 2026 - Calcula tu Elegibilidad",
     description: "Descubre en minutos si tienes derecho a una pensión no contributiva en España. Simulador gratuito, privado y actualizado a 2026. Cuantía: 628,80€/mes.",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   alternates: {
-    canonical: "https://tu-dominio.vercel.app",
+    canonical: "https://simuladorpensionnocontributiva.com",
   },
   category: 'Legal Services',
   classification: 'Pension Calculator',
